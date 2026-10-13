@@ -2,9 +2,9 @@ const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 // Validate environment variables
-const DB_NAME = process.env.DB_NAME || 'event_booking';
-const DB_USER = process.env.DB_USER || 'event_user';
-const DB_PASSWORD = process.env.DB_PASSWORD || 'Balo248:';
+const DB_NAME = process.env.DB_NAME;
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_HOST = process.env.DB_HOST || 'localhost';
 
 if (!DB_NAME || !DB_USER || !DB_PASSWORD || !DB_HOST) {
