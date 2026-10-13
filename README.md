@@ -1,92 +1,20 @@
-# Boonix
+# Boonix — Event Booking Platform
 
-### An event booking application built with React, Material UI, Node.js, Express, and MySQL.
+Full-stack event booking project using React/TypeScript, Material UI, Node.js, Express and MySQL.
 
 ## Features
-
-- Browse and search events
-- View event details
-- Book tickets for events
-- Manage bookings (view, cancel)
-- Create new events
-- Responsive design for all devices
-- Modern UI with Material Design
-
-## Tech Stack
-
-### Frontend
-- React 18
-- TypeScript
-- Material UI
-- React Router
-- Axios
-
-### Backend
-- Node.js
-- Express
-- MySQL
-- Sequelize ORM
+- Browse and manage events and reservations
+- JWT-based login and role-protected API endpoints
+- REST APIs for users, events and bookings
+- Optional image uploads to AWS S3
 
 ## Setup
+1. Set up MySQL using the checked-in schema files, and create a dedicated least-privilege database user.
+2. Copy `backend/.env.example` to `backend/.env`; replace the placeholders with **new** local values. Never commit your .env.
+3. From `backend/`, run `npm ci` and `npm run dev`.
+4. From `frontend/frontend/`, run `npm ci` and `npm start`.
 
-### Prerequisites
-- Node.js (v14 or higher)
-- MySQL (v8 or higher)
+See `backend/routes/` for the implemented endpoints. The old prototype tests under `backend/tests/` were written for a different Sequelize model structure and must be rewritten against the current mysql2 implementation before they can be treated as passing coverage.
 
-### Database Setup
-1. Create a MySQL database named `event_booking`
-2. Update database credentials in `backend/config/database.js`
-
-### Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Initialize the database:
-   ```bash
-   node scripts/initDb.js
-   ```
-4. Start the server:
-   ```bash
-   npm run dev
-   ```
-
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend/frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-
-## API Endpoints
-
-### Events
-- GET `/api/events` - Get all events
-- GET `/api/events/:id` - Get single event
-- POST `/api/events` - Create event
-- PUT `/api/events/:id` - Update event
-- DELETE `/api/events/:id` - Delete event
-
-### Bookings
-- GET `/api/bookings` - Get all bookings
-- GET `/api/bookings/:id` - Get single booking
-- POST `/api/bookings` - Create booking
-- PUT `/api/bookings/:id` - Update booking status
-- DELETE `/api/bookings/:id` - Cancel booking
-
-### Users
-- GET `/api/users` - Get all users
-- GET `/api/users/:id` - Get single user
-- POST `/api/users` - Create user
-- PUT `/api/users/:id` - Update user
+## Security note
+Past versions tracked credentials and generated dependencies. The tracked .env files and hard-coded backend database password have been removed from the current branch. Rotate any real DB password and other exposed credentials; historical commits remain accessible until cleaned separately. Do not use any historical values.
